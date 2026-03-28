@@ -110,9 +110,9 @@
     ],
 
     "telegram": {
-        "enabled": false,
-        "token": "YOUR_TELEGRAM_BOT_TOKEN",
-        "chat_id": "YOUR_CHAT_ID",
+        "enabled": true,
+        "token": "8772953266:AAGELltWQseFx2tsWch6Tg6FbZVDXi2eCdc",
+        "chat_id": "802008893",
         "notification_settings": {
             "status": "on",
             "warning": "on",
