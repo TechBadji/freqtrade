@@ -1,0 +1,146 @@
+{
+    "$schema": "https://schema.freqtrade.io/schema.json",
+
+    "bot_name": "ZeroLag-Live",
+    "strategy": "ZeroLagTrend",
+
+    "max_open_trades": 5,
+    "stake_currency": "USDT",
+    "stake_amount": 190,
+    "tradable_balance_ratio": 0.95,
+    "amend_last_stake_amount": true,
+    "fiat_display_currency": "USD",
+
+    "timeframe": "1h",
+
+    "dry_run": false,
+
+    "cancel_open_orders_on_exit": true,
+
+    "unfilledtimeout": {
+        "entry": 10,
+        "exit": 30,
+        "exit_timeout_count": 0,
+        "unit": "minutes"
+    },
+
+    "entry_pricing": {
+        "price_side": "same",
+        "use_order_book": true,
+        "order_book_top": 1,
+        "price_last_balance": 0.0,
+        "check_depth_of_market": {
+            "enabled": false,
+            "bids_to_ask_delta": 1
+        }
+    },
+
+    "exit_pricing": {
+        "price_side": "same",
+        "use_order_book": true,
+        "order_book_top": 1
+    },
+
+    "exchange": {
+        "name": "binance",
+        "key": "YOUR_BINANCE_API_KEY",
+        "secret": "YOUR_BINANCE_API_SECRET",
+        "ccxt_config": {
+            "options": {
+                "defaultType": "spot",
+                "fetchMarkets": ["spot"]
+            }
+        },
+        "ccxt_async_config": {
+            "options": {
+                "defaultType": "spot",
+                "fetchMarkets": ["spot"]
+            }
+        },
+        "pair_whitelist": [],
+        "pair_blacklist": [
+            "BNB/USDT",
+            ".*UP/USDT",
+            ".*DOWN/USDT",
+            ".*BULL/USDT",
+            ".*BEAR/USDT",
+            ".*3L/USDT",
+            ".*3S/USDT",
+            "USDC/USDT",
+            "BUSD/USDT",
+            "TUSD/USDT",
+            "DAI/USDT",
+            "EUR/USDT",
+            "GBP/USDT",
+            "PAX/USDT"
+        ]
+    },
+
+    "pairlists": [
+        {
+            "method": "VolumePairList",
+            "number_assets": 30,
+            "sort_key": "quoteVolume",
+            "min_value": 5000000,
+            "refresh_period": 1800
+        },
+        {
+            "method": "AgeFilter",
+            "min_days_listed": 30
+        },
+        {
+            "method": "PrecisionFilter"
+        },
+        {
+            "method": "PriceFilter",
+            "low_price_ratio": 0.01,
+            "min_price": 0.0001
+        },
+        {
+            "method": "SpreadFilter",
+            "max_spread_ratio": 0.005
+        },
+        {
+            "method": "RangeStabilityFilter",
+            "lookback_days": 10,
+            "min_rate_of_change": 0.01,
+            "refresh_period": 1440
+        }
+    ],
+
+    "telegram": {
+        "enabled": true,
+        "token": "YOUR_TELEGRAM_BOT_TOKEN",
+        "chat_id": "YOUR_CHAT_ID",
+        "notification_settings": {
+            "status": "on",
+            "warning": "on",
+            "startup": "on",
+            "entry": "on",
+            "entry_fill": "on",
+            "exit": "on",
+            "exit_fill": "on",
+            "protection_trigger": "on",
+            "protection_trigger_global": "on"
+        }
+    },
+
+    "api_server": {
+        "enabled": true,
+        "listen_ip_address": "0.0.0.0",
+        "listen_port": 8080,
+        "verbosity": "error",
+        "enable_openapi": false,
+        "jwt_secret_key": "CHANGE_THIS_TO_A_RANDOM_32_CHAR_STRING",
+        "CORS_origins": [],
+        "username": "zerolag",
+        "password": "CHANGE_THIS_PASSWORD"
+    },
+
+    "initial_state": "running",
+    "force_entry_enable": false,
+
+    "internals": {
+        "process_throttle_secs": 5
+    }
+}

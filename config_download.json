@@ -1,0 +1,20 @@
+{
+    "$schema": "https://schema.freqtrade.io/schema.json",
+    "stake_currency": "USDT",
+    "exchange": {
+        "name": "binance",
+        "key": "",
+        "secret": "",
+        "ccxt_config": {
+            "options": {
+                "defaultType": "spot"
+            }
+        },
+        "ccxt_async_config": {
+            "options": {
+                "defaultType": "spot"
+            }
+        },
+        "pair_whitelist": []
+    }
+}

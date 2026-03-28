@@ -1,0 +1,20 @@
+# Downloaded market data (large, re-downloadable)
+data/
+
+# Runtime outputs
+logs/
+backtest_results/
+hyperopt_results/
+plot/
+
+# Python cache
+__pycache__/
+strategies/__pycache__/
+*.pyc
+
+# Notebooks
+notebooks/
+
+# FreqAI
+freqaimodels/
+hyperopts/

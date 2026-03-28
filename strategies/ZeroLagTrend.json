@@ -1,0 +1,34 @@
+{
+  "strategy_name": "ZeroLagTrend",
+  "params": {
+    "roi": {
+      "0": 0.04,
+      "60": 0.03,
+      "240": 0.02,
+      "720": 0.01
+    },
+    "stoploss": {
+      "stoploss": -0.05
+    },
+    "trailing": {
+      "trailing_stop": true,
+      "trailing_stop_positive": 0.02,
+      "trailing_stop_positive_offset": 0.035,
+      "trailing_only_offset_is_reached": true
+    },
+    "max_open_trades": {
+      "max_open_trades": 5
+    },
+    "buy": {
+      "buy_bb_upperband_ratio": 0.99,
+      "buy_ema_long": 56,
+      "buy_ema_medium": 16,
+      "buy_ema_short": 10,
+      "buy_rsi_max": 67,
+      "buy_rsi_min": 50,
+      "buy_volume_factor": 1.6
+    }
+  },
+  "ft_stratparam_v": 1,
+  "export_time": "2026-03-28 15:42:18.289628+00:00"
+}
