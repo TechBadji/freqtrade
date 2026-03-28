@@ -132,11 +132,12 @@ class ZeroLagTrend(IStrategy):
         dataframe["rsi"] = pta.rsi(dataframe["close"], length=14)
 
         # --- Bollinger Bands (20, 2.0) ---
+        # Column names vary by pandas_ta version; use positional access (lower, mid, upper)
         bb = pta.bbands(dataframe["close"], length=20, std=2.0)
         if bb is not None:
-            dataframe["bb_lower"] = bb["BBL_20_2.0"]
-            dataframe["bb_mid"] = bb["BBM_20_2.0"]
-            dataframe["bb_upper"] = bb["BBU_20_2.0"]
+            dataframe["bb_lower"] = bb.iloc[:, 0]
+            dataframe["bb_mid"] = bb.iloc[:, 1]
+            dataframe["bb_upper"] = bb.iloc[:, 2]
 
         # --- MACD (12, 26, 9) ---
         macd = pta.macd(dataframe["close"], fast=12, slow=26, signal=9)
