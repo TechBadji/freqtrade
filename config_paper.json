@@ -132,10 +132,10 @@
         "listen_port": 8080,
         "verbosity": "error",
         "enable_openapi": false,
-        "jwt_secret_key": "CHANGE_THIS_TO_A_RANDOM_32_CHAR_STRING",
+        "jwt_secret_key": "zL9xK2mP4nQ7rT1vW8yA3bC6dE0fG5hJ",
         "CORS_origins": [],
         "username": "zerolag",
-        "password": "CHANGE_THIS_PASSWORD"
+        "password": "ZeroLag@2026!"
     },
 
     "initial_state": "running",
