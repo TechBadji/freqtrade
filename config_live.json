@@ -4,9 +4,9 @@
     "bot_name": "ZeroLag-Live",
     "strategy": "ZeroLagTrend",
 
-    "max_open_trades": 5,
+    "max_open_trades": 10,
     "stake_currency": "USDT",
-    "stake_amount": 190,
+    "stake_amount": 95,
     "tradable_balance_ratio": 0.95,
     "amend_last_stake_amount": true,
     "fiat_display_currency": "USD",
@@ -79,7 +79,7 @@
     "pairlists": [
         {
             "method": "VolumePairList",
-            "number_assets": 30,
+            "number_assets": 80,
             "sort_key": "quoteVolume",
             "min_value": 5000000,
             "refresh_period": 1800
