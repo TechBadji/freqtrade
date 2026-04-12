@@ -145,7 +145,7 @@
 
     "telegram": {
         "enabled": true,
-        "token": "8772953266:AAGELltWQseFx2tsWch6Tg6FbZVDXi2eCdc",
+        "token": "8064779939:AAEppXNvCZziNzi16V586UwGqKuY1zXJ0Uk",
         "chat_id": "802008893",
         "notification_settings": {
             "status": "on",
