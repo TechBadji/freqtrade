@@ -73,21 +73,48 @@
             "DAI/USDT",
             "EUR/USDT",
             "GBP/USDT",
-            "PAX/USDT"
+            "PAX/USDT",
+            ".*USDT/USDT",
+            "FF/USDT",
+            "ONG/USDT",
+            "GIGGLE/USDT",
+            "LPT/USDT",
+            "PARTI/USDT",
+            "MAV/USDT",
+            "ZAMA/USDT",
+            "KAITO/USDT",
+            "DUSK/USDT",
+            "OPEN/USDT",
+            "PUMP/USDT",
+            "ASTER/USDT",
+            "RED/USDT",
+            "SOLV/USDT",
+            "STO/USDT",
+            "XPL/USDT",
+            "ESP/USDT",
+            "MDT/USDT",
+            "PIXEL/USDT",
+            "MAGIC/USDT",
+            "REZ/USDT",
+            "NOM/USDT",
+            "MET/USDT",
+            "ETHFI/USDT",
+            "KITE/USDT",
+            "POL/USDT"
         ]
     },
 
     "pairlists": [
         {
             "method": "VolumePairList",
-            "number_assets": 80,
+            "number_assets": 30,
             "sort_key": "quoteVolume",
-            "min_value": 5000000,
+            "min_value": 20000000,
             "refresh_period": 1800
         },
         {
             "method": "AgeFilter",
-            "min_days_listed": 30
+            "min_days_listed": 90
         },
         {
             "method": "PrecisionFilter"
@@ -106,6 +133,13 @@
             "lookback_days": 10,
             "min_rate_of_change": 0.01,
             "refresh_period": 1440
+        },
+        {
+            "method": "VolatilityFilter",
+            "lookback_days": 10,
+            "min_volatility": 0.005,
+            "max_volatility": 0.12,
+            "refresh_period": 86400
         }
     ],
 
