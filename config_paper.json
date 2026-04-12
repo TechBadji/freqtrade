@@ -4,9 +4,9 @@
     "bot_name": "ZeroLag-Paper",
     "strategy": "ZeroLagTrend",
 
-    "max_open_trades": 10,
+    "max_open_trades": 15,
     "stake_currency": "USDT",
-    "stake_amount": 95,
+    "stake_amount": 65,
     "tradable_balance_ratio": 0.95,
     "amend_last_stake_amount": true,
     "fiat_display_currency": "USD",
@@ -104,10 +104,38 @@
         ]
     },
 
+    "protections": [
+        {
+            "method": "CooldownPeriod",
+            "stop_duration_candles": 2
+        },
+        {
+            "method": "StoplossGuard",
+            "lookback_period_candles": 24,
+            "trade_limit": 3,
+            "stop_duration_candles": 6,
+            "only_per_pair": false
+        },
+        {
+            "method": "StoplossGuard",
+            "lookback_period_candles": 6,
+            "trade_limit": 2,
+            "stop_duration_candles": 3,
+            "only_per_pair": true
+        },
+        {
+            "method": "MaxDrawdown",
+            "lookback_period_candles": 48,
+            "trade_limit": 1,
+            "stop_duration_candles": 12,
+            "max_allowed_drawdown": 0.10
+        }
+    ],
+
     "pairlists": [
         {
             "method": "VolumePairList",
-            "number_assets": 30,
+            "number_assets": 40,
             "sort_key": "quoteVolume",
             "min_value": 20000000,
             "refresh_period": 1800
