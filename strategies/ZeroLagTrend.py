@@ -49,6 +49,40 @@ class ZeroLagTrend(IStrategy):
     timeframe = "1h"
     use_custom_stoploss = True
 
+    @property
+    def protections(self):
+        return [
+            # Attendre 2 bougies après chaque sortie avant de re-rentrer (même paire)
+            {
+                "method": "CooldownPeriod",
+                "stop_duration_candles": 2
+            },
+            # Si 3 stop-loss en 24h sur tout le portefeuille → pause 6h
+            {
+                "method": "StoplossGuard",
+                "lookback_period_candles": 24,
+                "trade_limit": 3,
+                "stop_duration_candles": 6,
+                "only_per_pair": False
+            },
+            # Si 2 stop-loss en 6h sur la même paire → pause 3h sur cette paire
+            {
+                "method": "StoplossGuard",
+                "lookback_period_candles": 6,
+                "trade_limit": 2,
+                "stop_duration_candles": 3,
+                "only_per_pair": True
+            },
+            # Si drawdown > 10% en 48h → pause 12h (protection compte)
+            {
+                "method": "MaxDrawdown",
+                "lookback_period_candles": 48,
+                "trade_limit": 1,
+                "stop_duration_candles": 12,
+                "max_allowed_drawdown": 0.10
+            }
+        ]
+
     # --- ROI table (laisser courir les trades, le custom_stoploss gère) ---
     minimal_roi = {
         "0":    0.10,   # Cible max 10%
