@@ -201,8 +201,8 @@ class ZeroLagTrend(IStrategy):
             (dataframe["ema_50"] > dataframe["ema_200"])
         )
         macd_4h = pta.macd(dataframe["close"])
-        dataframe["macd_hist_4h"]      = macd_4h.iloc[:, 2]
-        dataframe["macd_hist_4h_prev"] = dataframe["macd_hist_4h"].shift(1)
+        dataframe["macd_hist"]      = macd_4h.iloc[:, 2]
+        dataframe["macd_hist_prev"] = dataframe["macd_hist"].shift(1)
 
         return dataframe
 
@@ -216,7 +216,7 @@ class ZeroLagTrend(IStrategy):
         # 1. Filtre 4h : bull OU MACD 4h en reprise (permet entrées en early recovery)
         macro_ok = (
             dataframe["is_bull_4h"].astype(bool) |
-            (dataframe["macd_hist_4h"].astype(float) > dataframe["macd_hist_4h_prev"].astype(float))
+            (dataframe["macd_hist_4h"].astype(float) > dataframe["macd_hist_prev_4h"].astype(float))
         )
         conditions.append(macro_ok)
 
